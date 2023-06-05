@@ -92,12 +92,14 @@ export default function Ejercicio5() {
 
   return (
     <div className="flex flex-col h-full">
-      <h3 className="my-6 mb-10 text-center">
+      <h3 className="mt-6 mb-4 text-center">
         <strong>5.</strong> Realiza el control de acceso a una caja fuerte. La combinación será un número de 4 cifras.
         El programa nos pedirá la combinación para abrirla. Si no acertamos, se nos mostrará el
         mensaje “Lo siento, esa no es la combinación” y si acertamos se nos dirá “La caja fuerte se
         ha abierto satisfactoriamente”. Tendremos cuatro oportunidades para abrir la caja fuerte
       </h3>
+
+      <p className='text-center text-sm text-blue-900 font-semibold mb-6'>Para este ejercicio se asignó la clave 1234</p>
 
       <div className="flex flex-col gap-8 h-full items-center pt-4 relative mt-4">
         <button
