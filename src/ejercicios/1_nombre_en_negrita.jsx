@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { TbReload } from 'react-icons/tb'
 
 export default function Ejercicio1() {
   /**
@@ -70,13 +71,32 @@ export default function Ejercicio1() {
     setOutput(true)
   }
 
+  const handleReload = () => {
+    setState({
+      name: '',
+      city: '',
+    })
+    setOutput(false)
+    setErrors({
+      name: { active: false, message: '' },
+      city: { active: false, message: '' },
+    })
+  }
+
   return (
     <div className="flex flex-col h-full">
       <h3 className="my-6 mb-10 text-center">
         <strong>1.</strong> Hacer un programa que escriba vuestro nombre (en negrita) y la ciudad dónde naciste.
       </h3>
 
-      <div className="flex flex-col gap-8 h-full items-center pt-4">
+      <div className="flex flex-col gap-8 h-full items-center pt-4 relative mt-4">
+        <button
+          className='flex items-center gap-1 text-sm bg-sky-600 hover:bg-sky-800 text-white font-semibold px-2 py-2 rounded-lg cursor-pointer absolute left-4 -top-8'
+          onClick={handleReload}
+        >
+          Reiniciar <TbReload size={20} />
+        </button>
+
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-col">
             <label htmlFor="name">Escribe tu nombre</label>

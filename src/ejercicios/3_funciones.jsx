@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { TbReload } from 'react-icons/tb'
 
 export default function Ejercicio3() {
   /**
@@ -108,6 +109,23 @@ export default function Ejercicio3() {
     setOutput({ ...output, absolute: numAbs })
   }
 
+  const handleReload = () => {
+    setState({
+      num_1: '',
+      num_2: '',
+      abs: '',
+    })
+    setOutput({
+      greater: '',
+      absolute: '',
+    })
+    setErrors({
+      num_1: { active: false, message: '' },
+      num_2: { active: false, message: '' },
+      abs: { active: false, message: '' },
+    })
+  }
+
   return (
     <div className="flex flex-col h-full">
       <h3 className="my-6 mb-10 text-center">
@@ -116,7 +134,14 @@ export default function Ejercicio3() {
         <br/>b. Implementar la función abs(x)
       </h3>
 
-      <section className='flex flex-row gap-24 justify-center'>
+      <section className='flex flex-row gap-20 justify-center pt-4 relative mt-4'>
+        <button
+          className='flex items-center gap-1 text-sm bg-sky-600 hover:bg-sky-800 text-white font-semibold px-2 py-2 rounded-lg cursor-pointer absolute left-4 -top-8'
+          onClick={handleReload}
+        >
+          Reiniciar <TbReload size={20} />
+        </button>
+
         <div className="flex flex-col gap-8 h-full items-center pt-4">
           <form className="flex flex-col gap-4" onSubmit={handleSubmitGreater}>
             <div className="flex flex-col">

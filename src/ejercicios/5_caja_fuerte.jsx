@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ConfettiExplosion from 'react-confetti-explosion'
+import { TbReload } from 'react-icons/tb'
 
 export default function Ejercicio5() {
   /**
@@ -73,6 +74,22 @@ export default function Ejercicio5() {
     }
   }
 
+  const handleReload = () => {
+    setState({
+      num_1: 0,
+      num_2: 0,
+      num_3: 0,
+      num_4: 0,
+    })
+    setCount(4)
+    setIsDisabled(false)
+    setIsRight(false)
+    setOutput({
+      error: false,
+      message: '',
+    })
+  }
+
   return (
     <div className="flex flex-col h-full">
       <h3 className="my-6 mb-10 text-center">
@@ -82,7 +99,14 @@ export default function Ejercicio5() {
         ha abierto satisfactoriamente”. Tendremos cuatro oportunidades para abrir la caja fuerte
       </h3>
 
-      <div className="flex flex-col gap-8 h-full items-center pt-4">
+      <div className="flex flex-col gap-8 h-full items-center pt-4 relative mt-4">
+        <button
+          className='flex items-center gap-1 text-sm bg-sky-600 hover:bg-sky-800 text-white font-semibold px-2 py-2 rounded-lg cursor-pointer absolute left-4 -top-8'
+          onClick={handleReload}
+        >
+          Reiniciar <TbReload size={20} />
+        </button>
+
         {isRight && <ConfettiExplosion />}
 
         <span className={`bg-blue-200 px-6 py-5 rounded-md w-2/4 text-center ${output.error ? 'text-red-800' : 'text-green-700'}`}>
@@ -137,7 +161,7 @@ export default function Ejercicio5() {
           </div>
 
           <input
-            className={`bg-sky-600 text-slate-100 px-4 py-2 rounded-lg cursor-pointer ${isDisabled ? 'opacity-50 cursor-not-allowed bg-red-600' : 'hover:bg-sky-800'}`}
+            className={`text-slate-100 px-4 py-2 rounded-lg ${isDisabled ? 'opacity-50 cursor-not-allowed bg-red-600' : 'bg-sky-600 hover:bg-sky-800 cursor-pointer'}`}
             type="submit"
             value="Abrir caja fuerte"
             disabled={isDisabled}

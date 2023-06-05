@@ -51,7 +51,7 @@ export default function Ejercicio4() {
         <strong>4.</strong> Escribe un programa que muestre tu horario de clase mediante una tabla.
       </h3>
 
-      <div className="flex flex-col gap-8 h-full items-center pt-4">
+      <div className="flex flex-col gap-8 h-full items-center pt-4 relative mt-4">
         <table>
           <thead>
             <tr>

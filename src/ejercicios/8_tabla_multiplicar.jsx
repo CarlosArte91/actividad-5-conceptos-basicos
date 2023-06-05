@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { TbReload } from 'react-icons/tb'
 
 export default function Ejercicio8() {
   /**
@@ -73,6 +74,27 @@ export default function Ejercicio8() {
     setOutput(newOutput)
   }
 
+  const handleReload = () => {
+    setState({
+      num: '',
+    })
+    setOutput([
+      { id: 1, multiplicando: '', multiplicador: '1', producto: '' },
+      { id: 2, multiplicando: '', multiplicador: '2', producto: '' },
+      { id: 3, multiplicando: '', multiplicador: '3', producto: '' },
+      { id: 4, multiplicando: '', multiplicador: '4', producto: '' },
+      { id: 5, multiplicando: '', multiplicador: '5', producto: '' },
+      { id: 6, multiplicando: '', multiplicador: '6', producto: '' },
+      { id: 7, multiplicando: '', multiplicador: '7', producto: '' },
+      { id: 8, multiplicando: '', multiplicador: '8', producto: '' },
+      { id: 9, multiplicando: '', multiplicador: '9', producto: '' },
+      { id: 10, multiplicando: '', multiplicador: '10', producto: '' },
+    ])
+    setErrors({
+      num: { active: false, message: '' },
+    })
+  }
+
   return (
     <div className="flex flex-col h-full">
       <h3 className="my-6 mb-10 text-center">
@@ -80,7 +102,14 @@ export default function Ejercicio8() {
         mostrar en una tabla en HTML.
       </h3>
 
-      <section className='flex flex-row gap-24 justify-center'>
+      <section className='flex flex-row gap-20 justify-center pt-4 relative mt-4'>
+        <button
+          className='flex items-center gap-1 text-sm bg-sky-600 hover:bg-sky-800 text-white font-semibold px-2 py-2 rounded-lg cursor-pointer absolute left-4 -top-8'
+          onClick={handleReload}
+        >
+          Reiniciar <TbReload size={20} />
+        </button>
+
         <div className="flex flex-col gap-8 h-full items-center pt-4">
           <form className="flex flex-col gap-4 w-3/5" onSubmit={handleSubmit}>
             <div className="flex flex-col text-center">

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { TbReload } from 'react-icons/tb'
 
 export default function Ejercicio2() {
   /**
@@ -71,13 +72,32 @@ export default function Ejercicio2() {
     setOutput(totalSuma)
   }
 
+  const handleReload = () => {
+    setState({
+      num_1: '',
+      num_2: '',
+    })
+    setOutput('')
+    setErrors({
+      num_1: { active: false, message: '' },
+      num_2: { active: false, message: '' },
+    })
+  }
+
   return (
     <div className="flex flex-col h-full">
       <h3 className="my-6 mb-10 text-center">
         <strong>2.</strong> Hacer un programa que escriba el resultado de la suma de dos variables (x = -1 e y= 9, por ejemplo).
       </h3>
 
-      <div className="flex flex-col gap-8 h-full items-center pt-4">
+      <div className="flex flex-col gap-8 h-full items-center pt-4 relative mt-4">
+        <button
+          className='flex items-center gap-1 text-sm bg-sky-600 hover:bg-sky-800 text-white font-semibold px-2 py-2 rounded-lg cursor-pointer absolute left-4 -top-8'
+          onClick={handleReload}
+        >
+          Reiniciar <TbReload size={20} />
+        </button>
+
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-col">
             <label htmlFor="num_1">Primer número</label>

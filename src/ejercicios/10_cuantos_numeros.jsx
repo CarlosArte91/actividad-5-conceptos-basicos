@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { TbReload } from 'react-icons/tb'
 
 export default function Ejercicio10() {
   /**
@@ -78,6 +79,21 @@ export default function Ejercicio10() {
     }
   }
 
+  const handleReload = () => {
+    setState({
+      num: '',
+      count: 0,
+      countImp: 0,
+      suma: 0,
+      mayor: 0,
+    })
+    setOutput({ cantidad: '-', promedio: '-', mayor: '-' })
+    setIsFinded(false)
+    setErrors({
+      num: { active: false, message: '' },
+    })
+  }
+
   return (
     <div className="flex flex-col h-full">
       <h3 className="my-6 mb-10 text-center">
@@ -87,7 +103,14 @@ export default function Ejercicio10() {
         introducción de datos pero no se incluye en el cómputo.
       </h3>
 
-      <div className="flex flex-col gap-8 h-full items-center pt-4">
+      <div className="flex flex-col gap-8 h-full items-center pt-4 relative mt-4">
+        <button
+          className='flex items-center gap-1 text-sm bg-sky-600 hover:bg-sky-800 text-white font-semibold px-2 py-2 rounded-lg cursor-pointer absolute left-4 -top-8'
+          onClick={handleReload}
+        >
+          Reiniciar <TbReload size={20} />
+        </button>
+
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-col">
             <label htmlFor="num">Agrega los números</label>
@@ -106,7 +129,7 @@ export default function Ejercicio10() {
           </div>
 
           <input
-            className={`bg-sky-600 text-slate-100 px-4 py-2 rounded-lg cursor-pointer ${isFinded ? 'opacity-50 cursor-not-allowed bg-red-600' : 'hover:bg-sky-800'}`}
+            className={`text-slate-100 px-4 py-2 rounded-lg ${isFinded ? 'opacity-50 cursor-not-allowed bg-red-600' : 'bg-sky-600 hover:bg-sky-800 cursor-pointer'}`}
             type="submit"
             value="Agregar"
             disabled={isFinded}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { TbReload } from 'react-icons/tb'
 
 const dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
@@ -22,6 +23,10 @@ export default function Ejercicio6() {
     setState(`${diaDeSemana} ${diaDelMes} de ${mes}`)
   }
 
+  const handleReload = () => {
+    setState('')
+  }
+
   return (
     <div className="flex flex-col h-full">
       <h3 className="my-6 mb-10 text-center">
@@ -30,7 +35,14 @@ export default function Ejercicio6() {
         proporciona el día en inglés mediante la función date().
       </h3>
 
-      <section className='flex flex-row gap-12 justify-center'>
+      <section className='flex flex-row gap-12 justify-center pt-4 relative mt-4'>
+        <button
+          className='flex items-center gap-1 text-sm bg-sky-600 hover:bg-sky-800 text-white font-semibold px-2 py-2 rounded-lg cursor-pointer absolute left-4 -top-8'
+          onClick={handleReload}
+        >
+          Reiniciar <TbReload size={20} />
+        </button>
+
         <div className="flex flex-col gap-8 h-full items-center pt-4 w-5/12">
           <p className='font-semibold text-lg'>
             Fecha del servidor

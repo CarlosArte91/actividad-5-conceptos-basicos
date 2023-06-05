@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import { TbReload } from 'react-icons/tb'
 import { FiShoppingCart } from 'react-icons/fi'
 
 import img_1 from '../assets/imgs/img_1.png'
@@ -56,6 +56,17 @@ export default function Ejercicio7() {
     setState(newState)
   }
 
+  const handleReload = () => {
+    setState({
+      message: '',
+      total: 0,
+      notification: 0,
+      gorra: { isInCar: false, text: 'Agregar al carro' },
+      tennis: { isInCar: false, text: 'Agregar al carro' },
+      balon: { isInCar: false, text: 'Agregar al carro' },
+    })
+  }
+
   return (
     <div className="flex flex-col h-full">
       <h3 className="my-6 mb-10 text-center">
@@ -64,7 +75,14 @@ export default function Ejercicio7() {
         otro al usuario. En concreto quiere que:
       </h3>
 
-      <section className='flex gap-8 justify-center'>
+      <section className='flex gap-8 justify-center pt-4 relative mt-4'>
+        <button
+          className='flex items-center gap-1 text-sm bg-sky-600 hover:bg-sky-800 text-white font-semibold px-2 py-2 rounded-lg cursor-pointer absolute left-4 -top-8'
+          onClick={handleReload}
+        >
+          Reiniciar <TbReload size={20} />
+        </button>
+
         <div className="flex flex-col gap-8 h-full items-center w-5/12">
           <span className="bg-blue-200 px-4 py-5 rounded-md text-center text-lg">
             <ul className='text-sm text-justify flex flex-col gap-5'>

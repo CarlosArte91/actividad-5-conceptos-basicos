@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { TbReload } from 'react-icons/tb'
 
 export default function Ejercicio11() {
   /**
@@ -109,6 +110,22 @@ export default function Ejercicio11() {
     })
   }
 
+  const handleReload = () => {
+    setState({
+      name: '',
+      lastname: '',
+      email: '',
+      phone: '',
+    })
+    setOutput([])
+    setErrors({
+      name: { active: false, message: '' },
+      lastname: { active: false, message: '' },
+      email: { active: false, message: '' },
+      phone: { active: false, message: '' },
+    })
+  }
+
   return (
     <div className="flex flex-col h-full">
       <h3 className="my-6 mb-10 text-center">
@@ -117,8 +134,15 @@ export default function Ejercicio11() {
         del formulario que no permita ingresar registros con campos vacíos.
       </h3>
 
-      <section className='flex flex-row gap-10 justify-center'>
-        <div className="px-2 h-full items-center pt-2 w-4/12">
+      <section className='flex flex-row gap-6 justify-center pt-4 relative mt-4'>
+        <button
+          className='flex items-center gap-1 text-sm bg-sky-600 hover:bg-sky-800 text-white font-semibold px-2 py-2 rounded-lg cursor-pointer absolute left-4 -top-8'
+          onClick={handleReload}
+        >
+          Reiniciar <TbReload size={20} />
+        </button>
+
+        <div className="px-2 h-full items-center pt-2 ml-8 w-4/12">
           <form className="flex flex-col gap-1" onSubmit={handleSubmitGreater}>
             <div className="flex flex-col">
               <label htmlFor="name">Nombre</label>
