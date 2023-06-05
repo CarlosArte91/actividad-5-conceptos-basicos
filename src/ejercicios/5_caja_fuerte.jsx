@@ -7,10 +7,10 @@ export default function Ejercicio5() {
    * Declaración de variables en estados de react para capturar los inputs.
    */
   const [state, setState] = useState({
-    num_1: 0,
-    num_2: 0,
-    num_3: 0,
-    num_4: 0,
+    num_1: '',
+    num_2: '',
+    num_3: '',
+    num_4: '',
   })
 
   const [count, setCount] = useState(4)
@@ -76,10 +76,10 @@ export default function Ejercicio5() {
 
   const handleReload = () => {
     setState({
-      num_1: 0,
-      num_2: 0,
-      num_3: 0,
-      num_4: 0,
+      num_1: '',
+      num_2: '',
+      num_3: '',
+      num_4: '',
     })
     setCount(4)
     setIsDisabled(false)
